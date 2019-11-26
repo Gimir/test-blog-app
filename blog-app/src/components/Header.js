@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
-import MainButton from './MainButton';
 import AppTitle from './AppTitle';
 
 const StyledHeader = styled.header`
     width: 100%;
-    height: 150px;
+    height: 100px;
     background-color: #000;
     display: flex;
     align-items: center;
@@ -15,12 +13,18 @@ const StyledHeader = styled.header`
     padding: 0 20px;
 `;
 
-const Header = () => {
+const Header = ({linkHandlers}) => {
     return (
         <StyledHeader>
-            <Link to='/' style={{color: '#fff'}}>Home</Link>
+            <a href='/' onClick={e => {
+                e.preventDefault();
+                linkHandlers.onGoHomeHandler();
+            }}>Home</a>
             <AppTitle>Test blog app</AppTitle>
-            <Link to='/edit' style={{color: '#fff'}}>Add Post</Link>
+            <a href='/edit' onClick={e => {
+                e.preventDefault();
+                linkHandlers.onCreateNewPostHandler();
+            }}>Add post</a>
         </StyledHeader>
        
     );

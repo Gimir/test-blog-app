@@ -12,13 +12,17 @@ const StyledDiv = styled.div`
     align-items: center;
 `;
 
-const PostList = ({posts}) => {
-    console.log(posts);
+const PostList = ({posts, onPostClick, deletePostHandler, openPostHandler}) => {
     return (
         <StyledDiv>
             {
                 posts.map(post => (
-                    <Post key={post.id} title={post.title} subtitle={post.subtitle} />
+                    <Post key={post.id} 
+                        title={post.title} 
+                        subtitle={post.subtitle} 
+                        onPostClick={onPostClick.bind(this, post.id)} 
+                        deletePostHandler={deletePostHandler.bind(this, post.id)}
+                        openPostHandler={openPostHandler.bind(this, post.id)} />
                 ))
             }
         </StyledDiv>

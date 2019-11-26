@@ -7,8 +7,8 @@ const StyledH3 = styled.h3`
     text-transform: uppercase;
 `;
 
-const Subtitle = ({children}) => (
-    <StyledH3>{children}</StyledH3>
+const Subtitle = ({children, style}) => (
+    <StyledH3 style={style}>{children}</StyledH3>
 );
 
 export default Subtitle;

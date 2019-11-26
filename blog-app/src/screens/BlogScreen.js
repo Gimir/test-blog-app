@@ -3,10 +3,13 @@ import styled from 'styled-components';
 
 import PostList from '../components/PostList';
 
-const BlogScreen = ({posts}) => {
+const BlogScreen = ({posts, onPostClick, deletePostHandler, openPostHandler}) => {
     return (
         <div>
-            <PostList posts={posts} />
+            <PostList posts={posts} 
+                onPostClick={onPostClick} 
+                deletePostHandler={deletePostHandler}
+                openPostHandler={openPostHandler} />
         </div>
     )
     

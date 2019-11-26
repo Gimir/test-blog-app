@@ -7,8 +7,8 @@ const StyledH2 = styled.h2`
     text-transform: uppercase;
 `;
 
-const Title = ({children}) => (
-    <StyledH2>{children}</StyledH2>
+const Title = ({children, style}) => (
+    <StyledH2 style={style}>{children}</StyledH2>
 );
 
 export default Title;

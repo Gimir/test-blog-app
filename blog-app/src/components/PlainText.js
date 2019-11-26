@@ -6,8 +6,8 @@ const StyledP = styled.p`
     color: #fff;
 `;
 
-const PlainText = ({children}) => (
-    <StyledP>{children}</StyledP>
+const PlainText = ({children, style}) => (
+    <StyledP style={style}>{children}</StyledP>
 );
 
 export default PlainText;

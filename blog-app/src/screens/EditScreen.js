@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import InputField from '../components/InputField';
@@ -18,9 +18,9 @@ const StyledDiv = styled.div`
 
 const EditScreen = ({onAddPostClick, onSavePostClick, onPostChange}) => {
 
-    const [Title, setTitle] = useState(onPostChange ? onPostChange.title : '');
-    const [Subtitle, setSubtitle] = useState(onPostChange ? onPostChange.subtitle : '');
-    const [Body, setBody] = useState(onPostChange ? onPostChange.body : '');
+    const [Title, setTitle] = useState(onPostChange ? onPostChange[0].title : '');
+    const [Subtitle, setSubtitle] = useState(onPostChange ? onPostChange[0].subtitle : '');
+    const [Body, setBody] = useState(onPostChange ? onPostChange[0].body : '');
     
     const onTitleChange = title => {
         setTitle(title);
@@ -31,8 +31,10 @@ const EditScreen = ({onAddPostClick, onSavePostClick, onPostChange}) => {
     const onBodyChange = text => {
         setBody(text);
     }
-    
 
+    
+    
+    
     return (
         <StyledDiv>
             <InputField type="Title" handleChange={onTitleChange} inputValue={Title} />
@@ -41,7 +43,7 @@ const EditScreen = ({onAddPostClick, onSavePostClick, onPostChange}) => {
             <MainButton onButtonClick={
                 onPostChange ?
                     onSavePostClick.bind(this, {
-                        id: onPostChange.id,
+                        id: onPostChange[0].id,
                         title: Title,
                         subtitle: Subtitle,
                         body: Body
